@@ -2,13 +2,14 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    
+
     <ul style="list-style: none;
 ">
       <li v-for="user in users" :key="user.id">
-        <p>名前:{{ user.name }}、スコア:{{ user.score }}、ヨットができたか?:{{ user.yachi }}</p>
+        <p>名前:{{ user.name }}、スコア:{{ user.score }}、ヨットを出したか?:{{ user.yachi }}</p>
       </li>
     </ul>
+    <button>フォーム→</button>
   </div>
 </template>
 
