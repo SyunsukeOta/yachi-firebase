@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { db } from '@/main'
 export default {
   name: 'Form',
   data() {
@@ -26,12 +27,32 @@ export default {
       playerName: '',
       scoreSize: '',
       checkYachi: false,
+      id: 3
     }
   },
   methods: {
     clickHandler: function() {
       console.log(this.playerName, Number(this.scoreSize), this.checkYachi);
+      this.id++;
+      (async () => {
+        try {
+          const userRef = db.collection('users').doc()
+          await userRef.set({
+            id: this.id,
+            name: this.playerName,
+            score: this.scoreSize,
+            yachi: this.checkYachi,
+          })
+        } catch (err) {
+          console.log(`Error: ${JSON.stringify(err)}`)
+        }
+      })()
     }
+
+  },
+  created: function() {
+    console.log(db.collection('users'));
+    
   }
 }
 </script>

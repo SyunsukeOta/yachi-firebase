@@ -29,7 +29,6 @@ export default {
       users: db.collection('users')
     }
   },
-  
   // components: {
   //   HelloWorld
   // }
